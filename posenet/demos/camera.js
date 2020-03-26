@@ -76,7 +76,7 @@ const defaultResNetInputResolution = 250;
 const guiState = {
   algorithm: 'multi-pose',
   input: {
-    architecture: 'ResNet50',
+    architecture: 'MobileNetV1',
     outputStride: defaultMobileNetStride,
     inputResolution: defaultMobileNetInputResolution,
     multiplier: defaultMobileNetMultiplier,
@@ -424,6 +424,7 @@ function detectPoseInRealTime(video, net) {
     // and draw the resulting skeleton and keypoints if over certain confidence
     // scores
     poses.forEach(({ score, keypoints }) => {
+      alert("test");
       if (score >= minPoseConfidence) {
         if (guiState.output.showPoints) {
           drawKeypoints(keypoints, minPartConfidence, ctx);
